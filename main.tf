@@ -1,5 +1,5 @@
 # 1. Create VPC
-resource "aws_vpc" "tf_vpc" {
+resource "aws_vpc" "t1_vpc" {
   cidr_block = "10.0.0.0/16"
   tags = { Name = "TF-VPC" }
 }
