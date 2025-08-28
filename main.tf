@@ -51,6 +51,6 @@ resource "aws_instance" "my_instance" {
   vpc_security_group_ids = [aws_security_group.tf_sg.id]
   key_name               = var.key_name
 
-  tags = { Name = "TF-Instance" }
+  tags = { Name = "MY-Instance" }
 }
 
