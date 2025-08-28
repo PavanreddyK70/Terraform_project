@@ -1,5 +1,5 @@
 # 1. Create VPC
-resource "aws_vpc" "t1_vpc" {
+resource "aws_vpc" "tf_vpc" {
   cidr_block = "10.0.0.0/16"
   tags = { Name = "TF-VPC" }
 }
@@ -7,7 +7,7 @@ resource "aws_vpc" "t1_vpc" {
 # 2. Create Subnet
 resource "aws_subnet" "tf_subnet" {
   vpc_id                  = aws_vpc.tf_vpc.id
-  cidr_block              = "10.0.2.0/24"
+  cidr_block              = "10.0.1.0/24"
   availability_zone       = "${var.aws_region}a"
   map_public_ip_on_launch = true
   tags = { Name = "TF-Subnet" }
@@ -44,7 +44,7 @@ resource "aws_security_group" "tf_sg" {
 }
 
 # 4. Create EC2 Instance
-resource "aws_instance" "tf_instance" {
+resource "aws_instance" "my_instance" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
   subnet_id              = aws_subnet.tf_subnet.id
